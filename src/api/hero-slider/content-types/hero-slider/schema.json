@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hero_sliders",
+  "info": {
+    "singularName": "hero-slider",
+    "pluralName": "hero-sliders",
+    "displayName": "Hero Slider"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SmallHeading": {
+      "type": "string"
+    },
+    "Mainheading": {
+      "type": "string"
+    },
+    "Paragraph": {
+      "type": "text"
+    },
+    "Sliderimage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Order": {
+      "type": "integer"
+    }
+  }
+}

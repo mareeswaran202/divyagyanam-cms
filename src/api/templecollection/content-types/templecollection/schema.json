@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "templecollections",
+  "info": {
+    "singularName": "templecollection",
+    "pluralName": "templecollections",
+    "displayName": "Templecollection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TempleName": {
+      "type": "string",
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "TempleName",
+      "required": true
+    },
+    "ShortDescription": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "TempleImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Gallery": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Featured": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
