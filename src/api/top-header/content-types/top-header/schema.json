@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "top_headers",
+  "info": {
+    "singularName": "top-header",
+    "pluralName": "top-headers",
+    "displayName": "Top Header"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "devotionalText": {
+      "type": "string"
+    },
+    "supportText": {
+      "type": "string"
+    },
+    "loginButtonText": {
+      "type": "string",
+      "default": "Login"
+    },
+    "loginButtonUrl": {
+      "type": "string"
+    },
+    "memberButtonText": {
+      "type": "string"
+    },
+    "memberButtonUrl": {
+      "type": "string"
+    },
+    "Language": {
+      "type": "component",
+      "component": "shared.language",
+      "repeatable": true
+    }
+  }
+}

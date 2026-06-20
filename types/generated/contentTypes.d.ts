@@ -504,6 +504,71 @@ export interface ApiLiveDarshanLiveDarshan extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiQuickAccessCardQuickAccessCard
+  extends Struct.SingleTypeSchema {
+  collectionName: 'quick_access_cards';
+  info: {
+    displayName: 'Quick Access Card';
+    pluralName: 'quick-access-cards';
+    singularName: 'quick-access-card';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    HomeCard: Schema.Attribute.Component<'shared.service-card', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::quick-access-card.quick-access-card'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSiteSettingSiteSetting extends Struct.SingleTypeSchema {
+  collectionName: 'site_settings';
+  info: {
+    displayName: 'SiteSetting';
+    pluralName: 'site-settings';
+    singularName: 'site-setting';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.Blocks;
+    contactNumber: Schema.Attribute.String;
+    copyrightText: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    emailAddress: Schema.Attribute.Email;
+    favicon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::site-setting.site-setting'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images'>;
+    publishedAt: Schema.Attribute.DateTime;
+    SiteName: Schema.Attribute.String;
+    socialLinks: Schema.Attribute.Component<'shared.social-link', true>;
+    Tagline: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTemplecollectionTemplecollection
   extends Struct.CollectionTypeSchema {
   collectionName: 'templecollections';
@@ -538,6 +603,41 @@ export interface ApiTemplecollectionTemplecollection
       'images' | 'files' | 'videos' | 'audios'
     >;
     TempleName: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTopHeaderTopHeader extends Struct.SingleTypeSchema {
+  collectionName: 'top_headers';
+  info: {
+    displayName: 'Top Header';
+    pluralName: 'top-headers';
+    singularName: 'top-header';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    devotionalText: Schema.Attribute.String;
+    Language: Schema.Attribute.Component<'shared.language', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::top-header.top-header'
+    > &
+      Schema.Attribute.Private;
+    loginButtonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Login'>;
+    loginButtonUrl: Schema.Attribute.String;
+    memberButtonText: Schema.Attribute.String;
+    memberButtonUrl: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    supportText: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1057,7 +1157,10 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::hero-slider.hero-slider': ApiHeroSliderHeroSlider;
       'api::live-darshan.live-darshan': ApiLiveDarshanLiveDarshan;
+      'api::quick-access-card.quick-access-card': ApiQuickAccessCardQuickAccessCard;
+      'api::site-setting.site-setting': ApiSiteSettingSiteSetting;
       'api::templecollection.templecollection': ApiTemplecollectionTemplecollection;
+      'api::top-header.top-header': ApiTopHeaderTopHeader;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

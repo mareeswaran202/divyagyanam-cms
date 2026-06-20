@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_languages",
+  "info": {
+    "displayName": "Language",
+    "icon": "globe"
+  },
+  "options": {},
+  "attributes": {
+    "LanguageName": {
+      "type": "string"
+    },
+    "LanguageCode": {
+      "type": "string"
+    },
+    "Active": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}
