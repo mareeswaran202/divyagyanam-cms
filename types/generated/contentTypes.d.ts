@@ -584,7 +584,9 @@ export interface ApiTemplecollectionTemplecollection
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Deity: Schema.Attribute.String;
     Description: Schema.Attribute.Text;
+    District: Schema.Attribute.String;
     Featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     Gallery: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
@@ -596,9 +598,11 @@ export interface ApiTemplecollectionTemplecollection
       'api::templecollection.templecollection'
     > &
       Schema.Attribute.Private;
+    Location: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     ShortDescription: Schema.Attribute.String;
     Slug: Schema.Attribute.UID<'TempleName'> & Schema.Attribute.Required;
+    State: Schema.Attribute.String;
     TempleImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;

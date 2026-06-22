@@ -49,6 +49,18 @@
     "Featured": {
       "type": "boolean",
       "default": true
+    },
+    "State": {
+      "type": "string"
+    },
+    "District": {
+      "type": "string"
+    },
+    "Deity": {
+      "type": "string"
+    },
+    "Location": {
+      "type": "string"
     }
   }
 }
