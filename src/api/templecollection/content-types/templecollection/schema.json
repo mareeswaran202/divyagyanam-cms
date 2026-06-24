@@ -23,9 +23,6 @@
     "ShortDescription": {
       "type": "string"
     },
-    "Description": {
-      "type": "text"
-    },
     "TempleImage": {
       "type": "media",
       "multiple": false,
@@ -61,6 +58,9 @@
     },
     "Location": {
       "type": "string"
+    },
+    "DescriptionRich": {
+      "type": "blocks"
     }
   }
 }

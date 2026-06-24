@@ -585,7 +585,7 @@ export interface ApiTemplecollectionTemplecollection
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Deity: Schema.Attribute.String;
-    Description: Schema.Attribute.Text;
+    DescriptionRich: Schema.Attribute.Blocks;
     District: Schema.Attribute.String;
     Featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     Gallery: Schema.Attribute.Media<
