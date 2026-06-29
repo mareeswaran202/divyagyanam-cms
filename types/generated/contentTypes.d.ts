@@ -569,6 +569,62 @@ export interface ApiSiteSettingSiteSetting extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiTempleEventTempleEvent extends Struct.CollectionTypeSchema {
+  collectionName: 'temple_events';
+  info: {
+    displayName: 'Temple Event';
+    pluralName: 'temple-events';
+    singularName: 'temple-event';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Blocks;
+    EndDate: Schema.Attribute.Date;
+    EventDate: Schema.Attribute.Date;
+    EventName: Schema.Attribute.String;
+    EventType: Schema.Attribute.Enumeration<
+      [
+        'Festival',
+        'Pooja',
+        'Abhishekam',
+        'Krishna Janmashtami',
+        'Ekadashi',
+        'Pradosham',
+        'Amavasya',
+        'Pournami',
+        'Annadanam',
+        'Brahmotsavam',
+        'Kumbabishekam',
+        'Special Event',
+        'Live Darshan',
+      ]
+    >;
+    Featured: Schema.Attribute.Boolean;
+    IsRecurring: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::temple-event.temple-event'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Slug: Schema.Attribute.UID;
+    Temple: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::templecollection.templecollection'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTemplecollectionTemplecollection
   extends Struct.CollectionTypeSchema {
   collectionName: 'templecollections';
@@ -603,6 +659,10 @@ export interface ApiTemplecollectionTemplecollection
     ShortDescription: Schema.Attribute.String;
     Slug: Schema.Attribute.UID<'TempleName'> & Schema.Attribute.Required;
     State: Schema.Attribute.String;
+    temple_event: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::temple-event.temple-event'
+    >;
     TempleImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
@@ -1163,6 +1223,7 @@ declare module '@strapi/strapi' {
       'api::live-darshan.live-darshan': ApiLiveDarshanLiveDarshan;
       'api::quick-access-card.quick-access-card': ApiQuickAccessCardQuickAccessCard;
       'api::site-setting.site-setting': ApiSiteSettingSiteSetting;
+      'api::temple-event.temple-event': ApiTempleEventTempleEvent;
       'api::templecollection.templecollection': ApiTemplecollectionTemplecollection;
       'api::top-header.top-header': ApiTopHeaderTopHeader;
       'plugin::content-releases.release': PluginContentReleasesRelease;

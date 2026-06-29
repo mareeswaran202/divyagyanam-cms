@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "temple_events",
+  "info": {
+    "singularName": "temple-event",
+    "pluralName": "temple-events",
+    "displayName": "Temple Event"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "EventName": {
+      "type": "string"
+    },
+    "Slug": {
+      "type": "uid"
+    },
+    "EventDate": {
+      "type": "date"
+    },
+    "EndDate": {
+      "type": "date"
+    },
+    "Temple": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::templecollection.templecollection",
+      "mappedBy": "temple_event"
+    },
+    "EventType": {
+      "type": "enumeration",
+      "enum": [
+        "Festival",
+        "Pooja",
+        "Abhishekam",
+        "Krishna Janmashtami",
+        "Ekadashi",
+        "Pradosham",
+        "Amavasya",
+        "Pournami",
+        "Annadanam",
+        "Brahmotsavam",
+        "Kumbabishekam",
+        "Special Event",
+        "Live Darshan"
+      ]
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "Banner": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Featured": {
+      "type": "boolean"
+    },
+    "IsRecurring": {
+      "type": "boolean"
+    }
+  }
+}
