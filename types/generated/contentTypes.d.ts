@@ -615,8 +615,8 @@ export interface ApiTempleEventTempleEvent extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     Slug: Schema.Attribute.UID;
-    Temple: Schema.Attribute.Relation<
-      'oneToMany',
+    temples: Schema.Attribute.Relation<
+      'manyToMany',
       'api::templecollection.templecollection'
     >;
     updatedAt: Schema.Attribute.DateTime;
@@ -659,8 +659,8 @@ export interface ApiTemplecollectionTemplecollection
     ShortDescription: Schema.Attribute.String;
     Slug: Schema.Attribute.UID<'TempleName'> & Schema.Attribute.Required;
     State: Schema.Attribute.String;
-    temple_event: Schema.Attribute.Relation<
-      'manyToOne',
+    temple_events: Schema.Attribute.Relation<
+      'manyToMany',
       'api::temple-event.temple-event'
     >;
     TempleImage: Schema.Attribute.Media<

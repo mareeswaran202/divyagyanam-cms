@@ -62,11 +62,11 @@
     "DescriptionRich": {
       "type": "blocks"
     },
-    "temple_event": {
+    "temple_events": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::temple-event.temple-event",
-      "inversedBy": "Temple"
+      "mappedBy": "temples"
     }
   }
 }

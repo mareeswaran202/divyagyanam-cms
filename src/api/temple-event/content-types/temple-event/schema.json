@@ -23,11 +23,11 @@
     "EndDate": {
       "type": "date"
     },
-    "Temple": {
+    "temples": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::templecollection.templecollection",
-      "mappedBy": "temple_event"
+      "inversedBy": "temple_events"
     },
     "EventType": {
       "type": "enumeration",
