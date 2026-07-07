@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "daily_pooja_schedules",
+  "info": {
+    "singularName": "daily-pooja-schedule",
+    "pluralName": "daily-pooja-schedules",
+    "displayName": "Daily Pooja Schedule"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "temple": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::templecollection.templecollection",
+      "inversedBy": "daily_pooja_schedules"
+    },
+    "daily_pooja": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::daily-pooja.daily-pooja",
+      "inversedBy": "daily_pooja_schedules"
+    },
+    "start_date": {
+      "type": "date"
+    },
+    "end_date": {
+      "type": "date"
+    },
+    "start_time": {
+      "type": "time"
+    },
+    "Avtive": {
+      "type": "boolean",
+      "default": true
+    },
+    "Notes": {
+      "type": "string"
+    }
+  }
+}

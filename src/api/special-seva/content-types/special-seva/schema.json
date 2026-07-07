@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "special_sevas",
+  "info": {
+    "singularName": "special-seva",
+    "pluralName": "special-sevas",
+    "displayName": "special-seva"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SevaName": {
+      "type": "string"
+    },
+    "Slug": {
+      "type": "uid"
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "special_seva_schedules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::special-seva-schedule.special-seva-schedule",
+      "mappedBy": "special_seva"
+    }
+  }
+}

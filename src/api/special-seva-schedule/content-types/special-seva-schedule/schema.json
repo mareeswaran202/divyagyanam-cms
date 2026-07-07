@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "special_seva_schedules",
+  "info": {
+    "singularName": "special-seva-schedule",
+    "pluralName": "special-seva-schedules",
+    "displayName": "Special Seva Schedule"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "templecollection": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::templecollection.templecollection",
+      "inversedBy": "special_seva_schedules"
+    },
+    "special_seva": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::special-seva.special-seva",
+      "inversedBy": "special_seva_schedules"
+    },
+    "start_date": {
+      "type": "date"
+    },
+    "end_date": {
+      "type": "date"
+    },
+    "start_time": {
+      "type": "time"
+    },
+    "end_time": {
+      "type": "time"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "booking_available": {
+      "type": "boolean",
+      "default": true
+    },
+    "max_tickets": {
+      "type": "integer"
+    },
+    "duration": {
+      "type": "integer"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

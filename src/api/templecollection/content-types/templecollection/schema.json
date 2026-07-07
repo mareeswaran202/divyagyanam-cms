@@ -67,6 +67,30 @@
       "relation": "manyToMany",
       "target": "api::temple-event.temple-event",
       "mappedBy": "temples"
+    },
+    "TempleTiming": {
+      "type": "string"
+    },
+    "ContactNumber": {
+      "type": "string"
+    },
+    "Established": {
+      "type": "string"
+    },
+    "Pincode": {
+      "type": "string"
+    },
+    "daily_pooja_schedules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::daily-pooja-schedule.daily-pooja-schedule",
+      "mappedBy": "temple"
+    },
+    "special_seva_schedules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::special-seva-schedule.special-seva-schedule",
+      "mappedBy": "templecollection"
     }
   }
 }

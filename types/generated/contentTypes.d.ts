@@ -440,6 +440,86 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDailyPoojaScheduleDailyPoojaSchedule
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'daily_pooja_schedules';
+  info: {
+    displayName: 'Daily Pooja Schedule';
+    pluralName: 'daily-pooja-schedules';
+    singularName: 'daily-pooja-schedule';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Avtive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    daily_pooja: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::daily-pooja.daily-pooja'
+    >;
+    end_date: Schema.Attribute.Date;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::daily-pooja-schedule.daily-pooja-schedule'
+    > &
+      Schema.Attribute.Private;
+    Notes: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    start_date: Schema.Attribute.Date;
+    start_time: Schema.Attribute.Time;
+    temple: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::templecollection.templecollection'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDailyPoojaDailyPooja extends Struct.CollectionTypeSchema {
+  collectionName: 'daily_poojas';
+  info: {
+    displayName: 'Daily-Pooja';
+    pluralName: 'daily-poojas';
+    singularName: 'daily-pooja';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    daily_pooja_schedules: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::daily-pooja-schedule.daily-pooja-schedule'
+    >;
+    Description: Schema.Attribute.Blocks;
+    Duration: Schema.Attribute.Integer;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::daily-pooja.daily-pooja'
+    > &
+      Schema.Attribute.Private;
+    PoojaName: Schema.Attribute.String;
+    PoojaType: Schema.Attribute.Enumeration<
+      ['Morning', 'Noon', 'Evening', 'Night']
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    Sequence: Schema.Attribute.Integer;
+    Slug: Schema.Attribute.UID;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHeroSliderHeroSlider extends Struct.CollectionTypeSchema {
   collectionName: 'hero_sliders';
   info: {
@@ -569,6 +649,91 @@ export interface ApiSiteSettingSiteSetting extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiSpecialSevaScheduleSpecialSevaSchedule
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'special_seva_schedules';
+  info: {
+    displayName: 'Special Seva Schedule';
+    pluralName: 'special-seva-schedules';
+    singularName: 'special-seva-schedule';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    booking_available: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    duration: Schema.Attribute.Integer;
+    end_date: Schema.Attribute.Date;
+    end_time: Schema.Attribute.Time;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::special-seva-schedule.special-seva-schedule'
+    > &
+      Schema.Attribute.Private;
+    max_tickets: Schema.Attribute.Integer;
+    notes: Schema.Attribute.String;
+    price: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    special_seva: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::special-seva.special-seva'
+    >;
+    start_date: Schema.Attribute.Date;
+    start_time: Schema.Attribute.Time;
+    templecollection: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::templecollection.templecollection'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSpecialSevaSpecialSeva extends Struct.CollectionTypeSchema {
+  collectionName: 'special_sevas';
+  info: {
+    displayName: 'special-seva';
+    pluralName: 'special-sevas';
+    singularName: 'special-seva';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Blocks;
+    Image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::special-seva.special-seva'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SevaName: Schema.Attribute.String;
+    Slug: Schema.Attribute.UID;
+    special_seva_schedules: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::special-seva-schedule.special-seva-schedule'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTempleEventTempleEvent extends Struct.CollectionTypeSchema {
   collectionName: 'temple_events';
   info: {
@@ -637,12 +802,18 @@ export interface ApiTemplecollectionTemplecollection
     draftAndPublish: true;
   };
   attributes: {
+    ContactNumber: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    daily_pooja_schedules: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::daily-pooja-schedule.daily-pooja-schedule'
+    >;
     Deity: Schema.Attribute.String;
     DescriptionRich: Schema.Attribute.Blocks;
     District: Schema.Attribute.String;
+    Established: Schema.Attribute.String;
     Featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     Gallery: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
@@ -655,9 +826,14 @@ export interface ApiTemplecollectionTemplecollection
     > &
       Schema.Attribute.Private;
     Location: Schema.Attribute.String;
+    Pincode: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     ShortDescription: Schema.Attribute.String;
     Slug: Schema.Attribute.UID<'TempleName'> & Schema.Attribute.Required;
+    special_seva_schedules: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::special-seva-schedule.special-seva-schedule'
+    >;
     State: Schema.Attribute.String;
     temple_events: Schema.Attribute.Relation<
       'manyToMany',
@@ -667,6 +843,7 @@ export interface ApiTemplecollectionTemplecollection
       'images' | 'files' | 'videos' | 'audios'
     >;
     TempleName: Schema.Attribute.String & Schema.Attribute.Required;
+    TempleTiming: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1219,10 +1396,14 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::daily-pooja-schedule.daily-pooja-schedule': ApiDailyPoojaScheduleDailyPoojaSchedule;
+      'api::daily-pooja.daily-pooja': ApiDailyPoojaDailyPooja;
       'api::hero-slider.hero-slider': ApiHeroSliderHeroSlider;
       'api::live-darshan.live-darshan': ApiLiveDarshanLiveDarshan;
       'api::quick-access-card.quick-access-card': ApiQuickAccessCardQuickAccessCard;
       'api::site-setting.site-setting': ApiSiteSettingSiteSetting;
+      'api::special-seva-schedule.special-seva-schedule': ApiSpecialSevaScheduleSpecialSevaSchedule;
+      'api::special-seva.special-seva': ApiSpecialSevaSpecialSeva;
       'api::temple-event.temple-event': ApiTempleEventTempleEvent;
       'api::templecollection.templecollection': ApiTemplecollectionTemplecollection;
       'api::top-header.top-header': ApiTopHeaderTopHeader;

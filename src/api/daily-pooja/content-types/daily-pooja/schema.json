@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "daily_poojas",
+  "info": {
+    "singularName": "daily-pooja",
+    "pluralName": "daily-poojas",
+    "displayName": "Daily-Pooja"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PoojaName": {
+      "type": "string"
+    },
+    "Slug": {
+      "type": "uid"
+    },
+    "Duration": {
+      "type": "integer"
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "Sequence": {
+      "type": "integer"
+    },
+    "PoojaType": {
+      "type": "enumeration",
+      "enum": [
+        "Morning",
+        "Noon",
+        "Evening",
+        "Night"
+      ]
+    },
+    "daily_pooja_schedules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::daily-pooja-schedule.daily-pooja-schedule",
+      "mappedBy": "daily_pooja"
+    }
+  }
+}
