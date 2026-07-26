@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_history_timeline_history_timelines",
+  "info": {
+    "displayName": "HistoryTimeline",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "Period": {
+      "type": "string"
+    },
+    "HistoryDescription": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

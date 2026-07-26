@@ -26,6 +26,7 @@
     "TempleImage": {
       "type": "media",
       "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -36,6 +37,7 @@
     "Gallery": {
       "type": "media",
       "multiple": true,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -91,6 +93,44 @@
       "relation": "oneToMany",
       "target": "api::special-seva-schedule.special-seva-schedule",
       "mappedBy": "templecollection"
+    },
+    "AdditionalDressCode": {
+      "type": "blocks"
+    },
+    "AdditionalDosAndDonts": {
+      "type": "blocks"
+    },
+    "HistoryOrigin": {
+      "type": "blocks"
+    },
+    "ByRoad": {
+      "type": "blocks"
+    },
+    "ByAir": {
+      "type": "blocks"
+    },
+    "ByTrain": {
+      "type": "blocks"
+    },
+    "TempleArchitecture": {
+      "type": "blocks"
+    },
+    "Accommodation": {
+      "type": "blocks"
+    },
+    "TempleWebsite": {
+      "type": "string"
+    },
+    "LiveStreamingUrl": {
+      "type": "string"
+    },
+    "BookingUrl": {
+      "type": "string"
+    },
+    "History": {
+      "type": "component",
+      "component": "history-timeline.history-timeline",
+      "repeatable": true
     }
   }
 }

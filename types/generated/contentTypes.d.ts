@@ -469,6 +469,7 @@ export interface ApiDailyPoojaScheduleDailyPoojaSchedule
       Schema.Attribute.Private;
     Notes: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    ScheduleName: Schema.Attribute.String;
     start_date: Schema.Attribute.Date;
     start_time: Schema.Attribute.Time;
     temple: Schema.Attribute.Relation<
@@ -630,6 +631,8 @@ export interface ApiSiteSettingSiteSetting extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    DefaultDosAndDonts: Schema.Attribute.Blocks;
+    DefaultDressCode: Schema.Attribute.Blocks;
     emailAddress: Schema.Attribute.Email;
     favicon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -802,6 +805,13 @@ export interface ApiTemplecollectionTemplecollection
     draftAndPublish: true;
   };
   attributes: {
+    Accommodation: Schema.Attribute.Blocks;
+    AdditionalDosAndDonts: Schema.Attribute.Blocks;
+    AdditionalDressCode: Schema.Attribute.Blocks;
+    BookingUrl: Schema.Attribute.String;
+    ByAir: Schema.Attribute.Blocks;
+    ByRoad: Schema.Attribute.Blocks;
+    ByTrain: Schema.Attribute.Blocks;
     ContactNumber: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -818,7 +828,14 @@ export interface ApiTemplecollectionTemplecollection
     Gallery: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
+    > &
+      Schema.Attribute.Required;
+    History: Schema.Attribute.Component<
+      'history-timeline.history-timeline',
+      true
     >;
+    HistoryOrigin: Schema.Attribute.Blocks;
+    LiveStreamingUrl: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -839,11 +856,14 @@ export interface ApiTemplecollectionTemplecollection
       'manyToMany',
       'api::temple-event.temple-event'
     >;
+    TempleArchitecture: Schema.Attribute.Blocks;
     TempleImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
-    >;
+    > &
+      Schema.Attribute.Required;
     TempleName: Schema.Attribute.String & Schema.Attribute.Required;
     TempleTiming: Schema.Attribute.String;
+    TempleWebsite: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

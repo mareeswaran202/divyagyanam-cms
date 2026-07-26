@@ -38,6 +38,9 @@
     },
     "Notes": {
       "type": "string"
+    },
+    "ScheduleName": {
+      "type": "string"
     }
   }
 }

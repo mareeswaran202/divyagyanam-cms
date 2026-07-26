@@ -50,6 +50,12 @@
       "type": "component",
       "component": "shared.social-link",
       "repeatable": true
+    },
+    "DefaultDressCode": {
+      "type": "blocks"
+    },
+    "DefaultDosAndDonts": {
+      "type": "blocks"
     }
   }
 }

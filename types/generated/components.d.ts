@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface HistoryTimelineHistoryTimeline extends Struct.ComponentSchema {
+  collectionName: 'components_history_timeline_history_timelines';
+  info: {
+    displayName: 'HistoryTimeline';
+    icon: 'calendar';
+  };
+  attributes: {
+    HistoryDescription: Schema.Attribute.Blocks;
+    Period: Schema.Attribute.String;
+  };
+}
+
 export interface SharedLanguage extends Struct.ComponentSchema {
   collectionName: 'components_shared_languages';
   info: {
@@ -43,6 +55,7 @@ export interface SharedSocialLink extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'history-timeline.history-timeline': HistoryTimelineHistoryTimeline;
       'shared.language': SharedLanguage;
       'shared.service-card': SharedServiceCard;
       'shared.social-link': SharedSocialLink;
