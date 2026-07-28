@@ -835,6 +835,7 @@ export interface ApiTemplecollectionTemplecollection
       true
     >;
     HistoryOrigin: Schema.Attribute.Blocks;
+    Latitude: Schema.Attribute.Decimal;
     LiveStreamingUrl: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -843,6 +844,7 @@ export interface ApiTemplecollectionTemplecollection
     > &
       Schema.Attribute.Private;
     Location: Schema.Attribute.String;
+    Longitude: Schema.Attribute.Decimal;
     Pincode: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     ShortDescription: Schema.Attribute.String;

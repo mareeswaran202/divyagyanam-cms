@@ -131,6 +131,12 @@
       "type": "component",
       "component": "history-timeline.history-timeline",
       "repeatable": true
+    },
+    "Latitude": {
+      "type": "decimal"
+    },
+    "Longitude": {
+      "type": "decimal"
     }
   }
 }
